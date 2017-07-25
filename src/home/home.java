@@ -52,6 +52,13 @@ public class home extends javax.swing.JFrame {
         jLabel93 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        efectivoInicialPanel = new javax.swing.JPanel();
+        jLabel94 = new javax.swing.JLabel();
+        efectivoInicial = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel95 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        registrarDineroButton = new javax.swing.JLabel();
         backgroundPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         ventasPanel = new javax.swing.JPanel();
@@ -317,9 +324,9 @@ public class home extends javax.swing.JFrame {
                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addComponent(jLabel92)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jLabel89)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jLabel88.setFont(new java.awt.Font("Damascus", 0, 14)); // NOI18N
@@ -437,6 +444,88 @@ public class home extends javax.swing.JFrame {
         );
 
         mainMasterPanel.add(loginPanel, "loginPanel");
+
+        efectivoInicialPanel.setBackground(new java.awt.Color(36, 47, 65));
+
+        jLabel94.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel94.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel94.setText("¿ Efectivo Inicial en Caja ?");
+
+        efectivoInicial.setBackground(new java.awt.Color(36, 47, 65));
+        efectivoInicial.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        efectivoInicial.setForeground(new java.awt.Color(255, 255, 255));
+        efectivoInicial.setText("0.00");
+        efectivoInicial.setBorder(null);
+
+        jLabel95.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel95.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel95.setText("$");
+
+        jPanel6.setBackground(new java.awt.Color(97, 212, 195));
+        jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        registrarDineroButton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        registrarDineroButton.setForeground(new java.awt.Color(255, 255, 255));
+        registrarDineroButton.setText("    Registrar Dinero Inicial En Caja");
+        registrarDineroButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrarDineroButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registrarDineroButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(registrarDineroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(registrarDineroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout efectivoInicialPanelLayout = new javax.swing.GroupLayout(efectivoInicialPanel);
+        efectivoInicialPanel.setLayout(efectivoInicialPanelLayout);
+        efectivoInicialPanelLayout.setHorizontalGroup(
+            efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, efectivoInicialPanelLayout.createSequentialGroup()
+                .addContainerGap(339, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(335, 335, 335))
+            .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+                .addGap(383, 383, 383)
+                .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel95)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(efectivoInicial))
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        efectivoInicialPanelLayout.setVerticalGroup(
+            efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(jLabel94)
+                .addGap(28, 28, 28)
+                .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(efectivoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel95))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(285, Short.MAX_VALUE))
+        );
+
+        mainMasterPanel.add(efectivoInicialPanel, "efectivoInicialPanel");
 
         backgroundPanel.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -2137,10 +2226,10 @@ public class home extends javax.swing.JFrame {
                     .addComponent(configuracionButton)
                     .addComponent(salirButton)
                     .addComponent(corteButton))
-                .addContainerGap(620, Short.MAX_VALUE))
+                .addContainerGap(631, Short.MAX_VALUE))
             .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                    .addGap(0, 124, Short.MAX_VALUE)
+                    .addGap(0, 135, Short.MAX_VALUE)
                     .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -2331,7 +2420,7 @@ public class home extends javax.swing.JFrame {
     private void iniciarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMouseClicked
         // TODO add your handling code here:
         CardLayout card = (CardLayout)mainMasterPanel.getLayout();
-        card.show(mainMasterPanel, "applicationPanel");
+        card.show(mainMasterPanel, "efectivoInicialPanel");
     }//GEN-LAST:event_iniciarButtonMouseClicked
 
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
@@ -2356,6 +2445,13 @@ public class home extends javax.swing.JFrame {
             }
             }
     }//GEN-LAST:event_jLabel89MouseClicked
+
+    private void registrarDineroButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarDineroButtonMouseClicked
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)mainMasterPanel.getLayout();
+        card.show(mainMasterPanel, "applicationPanel");
+        efectivoInicial.setText("0.00");
+    }//GEN-LAST:event_registrarDineroButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2419,6 +2515,8 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel configuracionUsuariosPanel;
     private javax.swing.JButton corteButton;
     private javax.swing.JPanel cortePanel;
+    private javax.swing.JTextField efectivoInicial;
+    private javax.swing.JPanel efectivoInicialPanel;
     private javax.swing.JLabel iniciarButton;
     private javax.swing.JPanel iniciarButtonBackground;
     private javax.swing.JButton invAgregarButton;
@@ -2555,14 +2653,18 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -2614,6 +2716,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton proveedoresButton;
     private javax.swing.JPanel proveedoresPanel;
     private javax.swing.JPanel proveedoresSubPanel;
+    private javax.swing.JLabel registrarDineroButton;
     private javax.swing.JButton salirButton;
     private javax.swing.JPanel tableHeaders;
     private javax.swing.JPanel usuariosPanel;
