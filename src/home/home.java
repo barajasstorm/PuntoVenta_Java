@@ -12,6 +12,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -45,20 +46,18 @@ public class home extends javax.swing.JFrame {
         jLabel90 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField35 = new javax.swing.JTextField();
-        iniciarButtonBackground = new javax.swing.JPanel();
-        iniciarButton = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        usernameField = new javax.swing.JTextField();
         jLabel93 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        iniciarButton = new javax.swing.JLabel();
         efectivoInicialPanel = new javax.swing.JPanel();
         jLabel94 = new javax.swing.JLabel();
         efectivoInicial = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel95 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        registrarDineroButton = new javax.swing.JLabel();
+        registrarButton = new javax.swing.JLabel();
         backgroundPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         ventasPanel = new javax.swing.JPanel();
@@ -378,48 +377,49 @@ public class home extends javax.swing.JFrame {
         jLabel90.setForeground(new java.awt.Color(255, 255, 255));
         jLabel90.setText("USERNAME");
 
-        jPasswordField1.setBackground(new java.awt.Color(36, 47, 65));
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setToolTipText("Ingresar contraseña");
-        jPasswordField1.setBorder(null);
-
-        jTextField35.setBackground(new java.awt.Color(36, 47, 65));
-        jTextField35.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
-        jTextField35.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField35.setToolTipText("Ingresar Usuario");
-        jTextField35.setBorder(null);
-        jTextField35.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField35ActionPerformed(evt);
+        passwordField.setBackground(new java.awt.Color(36, 47, 65));
+        passwordField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordField.setText("passpass");
+        passwordField.setToolTipText("Ingresar contraseña");
+        passwordField.setBorder(null);
+        passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordFieldFocusLost(evt);
             }
         });
-
-        iniciarButtonBackground.setBackground(new java.awt.Color(97, 212, 195));
-        iniciarButtonBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        iniciarButton.setFont(new java.awt.Font("Damascus", 1, 14)); // NOI18N
-        iniciarButton.setForeground(new java.awt.Color(255, 255, 255));
-        iniciarButton.setText("      Iniciar Sesion       ");
-        iniciarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iniciarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        passwordField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iniciarButtonMouseClicked(evt);
+                passwordFieldMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout iniciarButtonBackgroundLayout = new javax.swing.GroupLayout(iniciarButtonBackground);
-        iniciarButtonBackground.setLayout(iniciarButtonBackgroundLayout);
-        iniciarButtonBackgroundLayout.setHorizontalGroup(
-            iniciarButtonBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(iniciarButtonBackgroundLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(iniciarButton)
-                .addGap(0, 0, 0))
-        );
-        iniciarButtonBackgroundLayout.setVerticalGroup(
-            iniciarButtonBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(iniciarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-        );
+        usernameField.setBackground(new java.awt.Color(36, 47, 65));
+        usernameField.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
+        usernameField.setForeground(new java.awt.Color(255, 255, 255));
+        usernameField.setText("Ingresar Usuario");
+        usernameField.setToolTipText("Ingresar Usuario");
+        usernameField.setBorder(null);
+        usernameField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameFieldFocusLost(evt);
+            }
+        });
+        usernameField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usernameFieldMouseClicked(evt);
+            }
+        });
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameFieldActionPerformed(evt);
+            }
+        });
 
         jLabel93.setFont(new java.awt.Font("Damascus", 0, 14)); // NOI18N
         jLabel93.setForeground(new java.awt.Color(255, 255, 255));
@@ -436,30 +436,50 @@ public class home extends javax.swing.JFrame {
             }
         });
 
+        iniciarButton.setForeground(new java.awt.Color(255, 255, 255));
+        iniciarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Iniciar_Default.png"))); // NOI18N
+        iniciarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                iniciarButtonMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                iniciarButtonMouseReleased(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iniciarButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarButtonMouseEntered(evt);
+            }
+        });
+
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
         loginPanelLayout.setHorizontalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                        .addComponent(iniciarButtonBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel91, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator1))
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2)
-                            .addComponent(jSeparator4)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator2)
+                                .addComponent(jSeparator4)
+                                .addComponent(passwordField)
+                                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginPanelLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(iniciarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel91)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(133, 133, 133))
         );
         loginPanelLayout.setVerticalGroup(
@@ -471,22 +491,22 @@ public class home extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(92, 92, 92)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iniciarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(iniciarButtonBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -508,53 +528,43 @@ public class home extends javax.swing.JFrame {
         jLabel95.setForeground(new java.awt.Color(255, 255, 255));
         jLabel95.setText("$");
 
-        jPanel6.setBackground(new java.awt.Color(97, 212, 195));
-        jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        registrarDineroButton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        registrarDineroButton.setForeground(new java.awt.Color(255, 255, 255));
-        registrarDineroButton.setText("    Registrar Dinero Inicial En Caja");
-        registrarDineroButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        registrarDineroButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registrarDineroButtonMouseClicked(evt);
+        registrarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Registrar_Default.png"))); // NOI18N
+        registrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registrarButtonMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                registrarButtonMouseReleased(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registrarButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registrarButtonMouseEntered(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(registrarDineroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(registrarDineroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout efectivoInicialPanelLayout = new javax.swing.GroupLayout(efectivoInicialPanel);
         efectivoInicialPanel.setLayout(efectivoInicialPanelLayout);
         efectivoInicialPanelLayout.setHorizontalGroup(
             efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, efectivoInicialPanelLayout.createSequentialGroup()
-                .addContainerGap(339, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(335, 335, 335))
             .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
-                .addGap(383, 383, 383)
                 .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel95)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(efectivoInicial))
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+                        .addGap(383, 383, 383)
+                        .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel95)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(efectivoInicial))
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+                        .addGap(406, 406, 406)
+                        .addComponent(registrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
         efectivoInicialPanelLayout.setVerticalGroup(
             efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,9 +577,9 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jLabel95))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(registrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         mainMasterPanel.add(efectivoInicialPanel, "efectivoInicialPanel");
@@ -2790,12 +2800,6 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton22ActionPerformed
 
-    private void iniciarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMouseClicked
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)mainMasterPanel.getLayout();
-        card.show(mainMasterPanel, "efectivoInicialPanel");
-    }//GEN-LAST:event_iniciarButtonMouseClicked
-
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)mainMasterPanel.getLayout();
@@ -2819,20 +2823,13 @@ public class home extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_jLabel89MouseClicked
 
-    private void registrarDineroButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarDineroButtonMouseClicked
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)mainMasterPanel.getLayout();
-        card.show(mainMasterPanel, "applicationPanel");
-        efectivoInicial.setText("0.00");
-    }//GEN-LAST:event_registrarDineroButtonMouseClicked
-
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jTextField35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField35ActionPerformed
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField35ActionPerformed
+    }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -2849,6 +2846,101 @@ public class home extends javax.swing.JFrame {
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void iniciarButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMouseEntered
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Iniciar_Hover.png"));
+        iniciarButton.setIcon(II);
+    }//GEN-LAST:event_iniciarButtonMouseEntered
+
+    private void iniciarButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMouseExited
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Iniciar_Default.png"));
+        iniciarButton.setIcon(II);
+    }//GEN-LAST:event_iniciarButtonMouseExited
+
+    private void iniciarButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMousePressed
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Iniciar_Pressed.png"));
+        iniciarButton.setIcon(II);
+    }//GEN-LAST:event_iniciarButtonMousePressed
+
+    private void iniciarButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMouseReleased
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Iniciar_Hover.png"));
+        iniciarButton.setIcon(II);
+        CardLayout card = (CardLayout)mainMasterPanel.getLayout();
+        card.show(mainMasterPanel, "efectivoInicialPanel");
+        
+    }//GEN-LAST:event_iniciarButtonMouseReleased
+
+    private void registrarButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarButtonMouseEntered
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Registrar_Hover.png"));
+        registrarButton.setIcon(II);
+    }//GEN-LAST:event_registrarButtonMouseEntered
+
+    private void registrarButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarButtonMouseExited
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Registrar_Default.png"));
+        registrarButton.setIcon(II);
+    }//GEN-LAST:event_registrarButtonMouseExited
+
+    private void registrarButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarButtonMousePressed
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Registrar_Pressed.png"));
+        registrarButton.setIcon(II);
+    }//GEN-LAST:event_registrarButtonMousePressed
+
+    private void registrarButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarButtonMouseReleased
+        // TODO add your handling code here:
+        ImageIcon II = new ImageIcon(getClass().getResource("/Images/Registrar_Hover.png"));
+        registrarButton.setIcon(II);
+        CardLayout card = (CardLayout)mainMasterPanel.getLayout();
+        card.show(mainMasterPanel, "applicationPanel");
+        efectivoInicial.setText("0.00");
+    }//GEN-LAST:event_registrarButtonMouseReleased
+
+    private void usernameFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameFieldMouseClicked
+        // TODO add your handling code here:
+        if(usernameField.getText().equals("Ingresar Usuario"))
+        {
+            usernameField.setText("");
+        }
+    }//GEN-LAST:event_usernameFieldMouseClicked
+
+    private void passwordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldMouseClicked
+        // TODO add your handling code here:
+        if(passwordField.getText().equals("passpass"))
+        {
+            passwordField.setText("");
+        }
+    }//GEN-LAST:event_passwordFieldMouseClicked
+
+    private void usernameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFieldFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameFieldFocusGained
+
+    private void passwordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldFocusGained
+
+    private void usernameFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFieldFocusLost
+        // TODO add your handling code here:
+        if(usernameField.getText().equals(""))
+        {
+            usernameField.setText("Ingresar Usuario");
+        }
+        
+    }//GEN-LAST:event_usernameFieldFocusLost
+
+    private void passwordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusLost
+        // TODO add your handling code here:
+        if(passwordField.getText().equals(""))
+        {
+            passwordField.setText("passpass");
+        }
+    }//GEN-LAST:event_passwordFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -2915,7 +3007,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField efectivoInicial;
     private javax.swing.JPanel efectivoInicialPanel;
     private javax.swing.JLabel iniciarButton;
-    private javax.swing.JPanel iniciarButtonBackground;
     private javax.swing.JButton invAgregarButton;
     private javax.swing.JPanel invAgregarPanel;
     private javax.swing.JButton invBajosButton;
@@ -3089,8 +3180,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3125,7 +3214,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;
     private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField38;
@@ -3143,6 +3231,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel mainMasterPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nombreLabelSearch;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton provAgregarButton;
     private javax.swing.JPanel provAgregarPanel;
     private javax.swing.JButton provBorrarButton;
@@ -3154,9 +3243,10 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton proveedoresButton;
     private javax.swing.JPanel proveedoresPanel;
     private javax.swing.JPanel proveedoresSubPanel;
-    private javax.swing.JLabel registrarDineroButton;
+    private javax.swing.JLabel registrarButton;
     private javax.swing.JButton salirButton;
     private javax.swing.JPanel tableHeaders;
+    private javax.swing.JTextField usernameField;
     private javax.swing.JPanel usuariosPanel;
     private javax.swing.JPanel ventasBottomPanel;
     private javax.swing.JButton ventasButton;
