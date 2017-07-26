@@ -317,11 +317,12 @@ public class home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mi Tiendita App");
         setBackground(new java.awt.Color(0, 0, 0));
-        setBounds(new java.awt.Rectangle(0, 0, 1025, 600));
+        setBounds(new java.awt.Rectangle(0, 0, 1025, 640));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1025, 600));
-        setPreferredSize(new java.awt.Dimension(1025, 600));
+        setMaximumSize(new java.awt.Dimension(1025, 640));
+        setPreferredSize(new java.awt.Dimension(1025, 640));
         setResizable(false);
+        setSize(new java.awt.Dimension(1025, 640));
 
         mainMasterPanel.setLayout(new java.awt.CardLayout());
 
@@ -553,27 +554,25 @@ public class home extends javax.swing.JFrame {
         efectivoInicialPanel.setLayout(efectivoInicialPanelLayout);
         efectivoInicialPanelLayout.setHorizontalGroup(
             efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, efectivoInicialPanelLayout.createSequentialGroup()
+                .addContainerGap(392, Short.MAX_VALUE)
                 .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel95)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(efectivoInicial))
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
-                        .addGap(383, 383, 383)
-                        .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel95)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(efectivoInicial))
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
-                        .addGap(406, 406, 406)
+                        .addGap(23, 23, 23)
                         .addComponent(registrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(366, Short.MAX_VALUE))
+                .addGap(357, 357, 357))
         );
         efectivoInicialPanelLayout.setVerticalGroup(
             efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(efectivoInicialPanelLayout.createSequentialGroup()
-                .addGap(154, 154, 154)
+                .addGap(195, 195, 195)
                 .addComponent(jLabel94)
                 .addGap(28, 28, 28)
                 .addGroup(efectivoInicialPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -583,7 +582,7 @@ public class home extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(registrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         mainMasterPanel.add(efectivoInicialPanel, "efectivoInicialPanel");
@@ -1007,7 +1006,7 @@ public class home extends javax.swing.JFrame {
             invTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, invTodosPanelLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(459, Short.MAX_VALUE))
+                .addContainerGap(466, Short.MAX_VALUE))
         );
 
         inventarioSubPanel.add(invTodosPanel, "invTodosPanel");
@@ -1030,7 +1029,7 @@ public class home extends javax.swing.JFrame {
             .addGroup(invBajosPanelLayout.createSequentialGroup()
                 .addGap(215, 215, 215)
                 .addComponent(jLabel23)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         inventarioSubPanel.add(invBajosPanel, "invBajosPanel");
@@ -1132,7 +1131,7 @@ public class home extends javax.swing.JFrame {
                 .addGroup(invAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel61)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addGroup(invAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarCancelarProductoButton)
                     .addComponent(agregarGuardarProductoButton))
@@ -1250,7 +1249,7 @@ public class home extends javax.swing.JFrame {
                 .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton12))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         inventarioSubPanel.add(invModificarPanel, "invModificarPanel");
@@ -1306,7 +1305,7 @@ public class home extends javax.swing.JFrame {
                 .addGroup(invBorrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15)
                     .addComponent(jButton16))
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
         inventarioSubPanel.add(invBorrarPanel, "invBorrarPanel");
@@ -2705,7 +2704,7 @@ public class home extends javax.swing.JFrame {
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
             .addComponent(headerMainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         backgroundPanelLayout.setVerticalGroup(
