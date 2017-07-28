@@ -5,12 +5,22 @@
  */
 package home;
 
+import java.sql.Connection;
+import java.sql.*;
+
 /**
  *
  * @author juanba
  */
 
-public class Main {
+public class Main {   
+    
+    //To Connect to PostgreSql
+    Connection con;
+    public void login(){
+        con = Conex.getInstance().getConnection();
+    }
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -41,7 +51,8 @@ public class Main {
       
         // MAIN CODE START UNDER THIS LINE
         Producto iphone = new Producto (1234, "iphone", 55.55, 44.44, 10, 20);
-        System.out.print(iphone.getNombre());
+       // System.out.print(iphone.getNombre());
+     
     }
 }
 
