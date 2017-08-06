@@ -30,7 +30,8 @@ public class Main {
         //</editor-fold>
         
         //</editor-fold>
-        
+         Postgres postgres = new Postgres();
+         postgres.connect();
         
 
         /* Create and display the form */
