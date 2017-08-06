@@ -21,6 +21,9 @@ public class Postgres {
     public static final String DATABASE_URL = "jdbc:postgresql://localhost/final";
     private final String USER = "postgres";
     private final String PASSWORD = "password";
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
 
     /**
      * Connect to the PostgreSQL database
@@ -28,10 +31,8 @@ public class Postgres {
      * @return a Connection object
      */
     public Connection connect() {
-        Connection connection = null;
         try {
-            connection = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);
-            System.out.println("Connected to the PostgreSQL server successfully.");
+            connection = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);        
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -40,10 +41,6 @@ public class Postgres {
     }
 
     public boolean login(String username, String password) {
-        Connection connection;
-        ResultSet resultSet;
-        Statement statement;
-
         try {
 
             Class.forName("org.postgresql.Driver");
@@ -51,14 +48,10 @@ public class Postgres {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select * from usuarios");
 
-            int x = 1;
             while (resultSet.next()) {
-
                 if (resultSet.getString("username").equals(username) && resultSet.getString("password").equals(password)) {
-                    System.out.println("Login Succesful");
                     return true;
                 }
-                x++;
             }
 
         } catch (ClassNotFoundException ex) {

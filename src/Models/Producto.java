@@ -12,13 +12,13 @@ package Models;
 public class Producto {
     
     //Instance Variables
-    private int pk_ProductoId;
-    private String nombre;
-    private double precioCompra;
-    private double precioVenta;
-    private int existencias;
-    private int stockMin;
-    private int activo;
+    public int pk_ProductoId;
+    public String nombre;
+    public double precioCompra;
+    public double precioVenta;
+    public int existencias;
+    public int stockMin;
+    public int activo;
 
     //Constructors
     public Producto() {
