@@ -96,8 +96,6 @@ public class ProductoController extends Producto {
     public DefaultTableModel todosProductosDisplay() throws SQLException {
         Postgres postgres = new Postgres();
         Connection connection = postgres.connect();
-        ResultSet resultSet = null;
-        Statement statement = null;
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Nombre", "Precio Compra", "Precio Venta", "Existencias", "Stock Minimo"}, 0);
         String sql = "SELECT * FROM productos";
@@ -120,8 +118,6 @@ public class ProductoController extends Producto {
     public DefaultTableModel todosProductosBajosDisplay() throws SQLException {
         Postgres postgres = new Postgres();
         Connection connection = postgres.connect();
-        ResultSet resultSet = null;
-        Statement statement = null;
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Nombre", "Precio Compra", "Precio Venta", "Existencias", "Stock Minimo"}, 0);
         String sql = "SELECT * FROM productos WHERE existencias < stockminimo";
