@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 import Controllers.*;
+import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,12 +30,13 @@ import javax.swing.table.DefaultTableModel;
 public class home extends javax.swing.JFrame {
     
     private boolean loginAttempt = false;
-
+    ProductoController prodControl = new ProductoController();
     /**
      * Creates new form home
      */
     public home() {
         initComponents();
+        
     }
 
     /**
@@ -106,17 +108,11 @@ public class home extends javax.swing.JFrame {
         inventarioPanel = new javax.swing.JPanel();
         inventarioSubPanel = new javax.swing.JPanel();
         invTodosPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         todosProductosTable = new javax.swing.JTable();
         invBajosPanel = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        todosBajosTable = new javax.swing.JTable();
         invAgregarPanel = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
@@ -817,6 +813,7 @@ public class home extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         headerMainPanel.add(headerSecondPanel, gridBagConstraints);
 
+        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setLayout(new java.awt.CardLayout());
 
         ventasPanel.setBackground(new java.awt.Color(204, 255, 255));
@@ -986,59 +983,33 @@ public class home extends javax.swing.JFrame {
 
         invTodosPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(36, 47, 65));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("ID");
-
-        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel51.setText("Nombre");
-
-        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel52.setText("Precio Compra");
-
-        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel53.setText("Precio Venta");
-
-        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel54.setText("Existencias");
-
-        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel55.setText("Stock Minimo");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addComponent(jLabel51)
-                .addGap(101, 101, 101)
-                .addComponent(jLabel52)
-                .addGap(86, 86, 86)
-                .addComponent(jLabel53)
-                .addGap(97, 97, 97)
-                .addComponent(jLabel54)
-                .addGap(93, 93, 93)
-                .addComponent(jLabel55)
-                .addGap(42, 42, 42))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                .addComponent(jLabel51)
-                .addComponent(jLabel52)
-                .addComponent(jLabel53)
-                .addComponent(jLabel54)
-                .addComponent(jLabel55))
-        );
-
         todosProductosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -1048,14 +1019,26 @@ public class home extends javax.swing.JFrame {
                 "", "", "", "", "", ""
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        todosProductosTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        todosProductosTable.setGridColor(new java.awt.Color(204, 204, 204));
+        todosProductosTable.setSelectionBackground(new java.awt.Color(0, 51, 153));
+        todosProductosTable.getTableHeader().setResizingAllowed(false);
+        todosProductosTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(todosProductosTable);
         if (todosProductosTable.getColumnModel().getColumnCount() > 0) {
             todosProductosTable.getColumnModel().getColumn(0).setResizable(false);
@@ -1070,38 +1053,39 @@ public class home extends javax.swing.JFrame {
         invTodosPanel.setLayout(invTodosPanelLayout);
         invTodosPanelLayout.setHorizontalGroup(
             invTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
         );
         invTodosPanelLayout.setVerticalGroup(
             invTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, invTodosPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
         );
 
         inventarioSubPanel.add(invTodosPanel, "invTodosPanel");
 
         invBajosPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel23.setText("Productos Bajos en Inventario");
+        todosBajosTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(todosBajosTable);
 
         javax.swing.GroupLayout invBajosPanelLayout = new javax.swing.GroupLayout(invBajosPanel);
         invBajosPanel.setLayout(invBajosPanelLayout);
         invBajosPanelLayout.setHorizontalGroup(
             invBajosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(invBajosPanelLayout.createSequentialGroup()
-                .addGap(413, 413, 413)
-                .addComponent(jLabel23)
-                .addContainerGap(422, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
         );
         invBajosPanelLayout.setVerticalGroup(
             invBajosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(invBajosPanelLayout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(jLabel23)
-                .addContainerGap(292, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
         );
 
         inventarioSubPanel.add(invBajosPanel, "invBajosPanel");
@@ -1335,7 +1319,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(modBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton16)
                     .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1364,7 +1348,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jButton11)
                     .addComponent(guardarCambioButton)
                     .addComponent(successLabel))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         inventarioSubPanel.add(invModificarPanel, "invModificarPanel");
@@ -1554,7 +1538,7 @@ public class home extends javax.swing.JFrame {
                 .addComponent(invModificarButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(invBorrarButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addComponent(inventarioSubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         inventarioPanelLayout.setVerticalGroup(
@@ -2957,10 +2941,17 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
         card.show(inventarioSubPanel, "invBajosPanel");
+        DefaultTableModel model = prodControl.todosProductosBajosDisplay();
+        todosBajosTable.setModel(model);
     }//GEN-LAST:event_invBajosButtonActionPerformed
-  
+        
     private void invTodosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invTodosButtonActionPerformed
         // TODO add your handling code here:  
+        CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
+        card.show(inventarioSubPanel, "invTodosPanel");
+        DefaultTableModel model = prodControl.todosProductosDisplay();
+        todosProductosTable.setModel(model);
+        
     }//GEN-LAST:event_invTodosButtonActionPerformed
 
     private void provTodosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_provTodosButtonActionPerformed
@@ -3310,6 +3301,9 @@ public class home extends javax.swing.JFrame {
         headerBackgroundImage.setIcon(II);
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "inventarioPanel");
+        DefaultTableModel model = prodControl.todosProductosDisplay();
+        todosProductosTable.setModel(model);
+        
     }//GEN-LAST:event_inventarioLabelMousePressed
 
     private void inventarioLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventarioLabelMouseReleased
@@ -3745,10 +3739,8 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -3776,11 +3768,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
@@ -3829,12 +3816,12 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3900,6 +3887,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel successLabel;
     private javax.swing.JLabel successMessage;
     private javax.swing.JPanel tableHeaders;
+    private javax.swing.JTable todosBajosTable;
     private javax.swing.JTable todosProductosTable;
     private javax.swing.JTextField usernameField;
     private javax.swing.JPanel usuariosPanel;
