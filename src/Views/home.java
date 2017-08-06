@@ -3,22 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package home;
+package Views;
 
+import Models.Usuario;
 import java.awt.CardLayout;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+
+import Controllers.Postgres;
 
 /**
  *
  * @author juanba
  */
 public class home extends javax.swing.JFrame {
+    
+    private boolean loginAttempt = false;
 
     /**
      * Creates new form home
@@ -53,7 +60,6 @@ public class home extends javax.swing.JFrame {
         jLabel91 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         iniciarButton = new javax.swing.JLabel();
-        login = new javax.swing.JToggleButton();
         efectivoInicialPanel = new javax.swing.JPanel();
         jLabel94 = new javax.swing.JLabel();
         efectivoInicial = new javax.swing.JTextField();
@@ -320,8 +326,6 @@ public class home extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
         setBounds(new java.awt.Rectangle(0, 0, 1025, 640));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1025, 640));
-        setPreferredSize(new java.awt.Dimension(1025, 640));
         setResizable(false);
         setSize(new java.awt.Dimension(1025, 640));
 
@@ -452,18 +456,14 @@ public class home extends javax.swing.JFrame {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 iniciarButtonMouseReleased(evt);
             }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarButtonMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 iniciarButtonMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 iniciarButtonMouseEntered(evt);
-            }
-        });
-
-        login.setText("jToggleButton1");
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
             }
         });
 
@@ -486,10 +486,8 @@ public class home extends javax.swing.JFrame {
                                 .addComponent(passwordField)
                                 .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginPanelLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(login)
-                            .addComponent(iniciarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(128, 128, 128)
+                        .addComponent(iniciarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel91)
@@ -522,9 +520,7 @@ public class home extends javax.swing.JFrame {
                         .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(login)
-                .addGap(39, 39, 39))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainMasterPanel.add(loginPanel, "loginPanel");
@@ -2925,15 +2921,22 @@ public class home extends javax.swing.JFrame {
     private void iniciarButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMousePressed
         // TODO add your handling code here:
         ImageIcon II = new ImageIcon(getClass().getResource("/Images/Iniciar_Pressed.png"));
-        iniciarButton.setIcon(II);
+        iniciarButton.setIcon(II);      
     }//GEN-LAST:event_iniciarButtonMousePressed
 
     private void iniciarButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMouseReleased
         // TODO add your handling code here:
         ImageIcon II = new ImageIcon(getClass().getResource("/Images/Iniciar_Hover.png"));
         iniciarButton.setIcon(II);
-        CardLayout card = (CardLayout)mainMasterPanel.getLayout();
-        card.show(mainMasterPanel, "efectivoInicialPanel");
+        
+        Postgres postgres = new Postgres();
+        loginAttempt = postgres.login(usernameField.getText(), passwordField.getText());
+        if(loginAttempt) {
+            CardLayout card = (CardLayout)mainMasterPanel.getLayout();
+            card.show(mainMasterPanel, "efectivoInicialPanel");
+        } else {
+            System.out.print("Usuario / Cont Incorrectos");
+        }
         
     }//GEN-LAST:event_iniciarButtonMouseReleased
 
@@ -3218,6 +3221,8 @@ public class home extends javax.swing.JFrame {
         headerBackgroundImage.setIcon(II);
         CardLayout card = (CardLayout)mainMasterPanel.getLayout();
         card.show(mainMasterPanel, "loginPanel");
+        
+    
     }//GEN-LAST:event_salirLabelMousePressed
 
     private void salirLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirLabelMouseReleased
@@ -3226,11 +3231,9 @@ public class home extends javax.swing.JFrame {
         headerBackgroundImage.setIcon(II);
     }//GEN-LAST:event_salirLabelMouseReleased
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+    private void iniciarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarButtonMouseClicked
         // TODO add your handling code here:
-        Main con = new Main();
-        con.login();
-    }//GEN-LAST:event_loginActionPerformed
+    }//GEN-LAST:event_iniciarButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -3520,7 +3523,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JToggleButton login;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPanel mainMasterPanel;
     private javax.swing.JPanel mainPanel;

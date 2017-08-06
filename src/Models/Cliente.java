@@ -3,33 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package home;
+package Models;
 
 /**
  *
  * @author juanba
  */
-public class Usuarios {
+public class Cliente {
+    
     //Instance Variables
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
-    private String userName;
-    private String password;
-    
+    private String rfc;
+    private int telefono;
+
     //Constructors
-    public Usuarios() {
+    public Cliente() {
     }
 
-    public Usuarios(String nombre, String apellidoPaterno, String apellidoMaterno, String userName, String password) {
+    public Cliente(String nombre, String apellidoPaterno, String apellidoMaterno, String rfc, int telefono) {
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
-        this.userName = userName;
-        this.password = password;
+        this.rfc = rfc;
+        this.telefono = telefono;
     }
     
     //Getters and Setters
+
     public String getNombre() {
         return nombre;
     }
@@ -54,21 +56,22 @@ public class Usuarios {
         this.apellidoMaterno = apellidoMaterno;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getRfc() {
+        return rfc;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setRfc(String rfc) {
+        this.rfc = rfc;
     }
 
-    public String getPassword() {
-        return password;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
+    
     
     
     
