@@ -12,11 +12,12 @@ package Models;
 public class Cliente {
     
     //Instance Variables
-    private String nombre;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
-    private String rfc;
-    private int telefono;
+    public String nombre;
+    public String apellidoPaterno;
+    public String apellidoMaterno;
+    public String rfc;
+    public int telefono;
+
 
     //Constructors
     public Cliente() {

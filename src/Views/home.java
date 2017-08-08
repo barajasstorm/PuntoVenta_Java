@@ -6,6 +6,7 @@
 package Views;
 
 import Models.Usuario;
+import Models.Cliente;
 import java.awt.CardLayout;
 import java.awt.Desktop;
 import java.io.IOException;
@@ -31,6 +32,8 @@ public class home extends javax.swing.JFrame {
     
     private boolean loginAttempt = false;
     ProductoController prodControl = new ProductoController();
+    ClientesController clienControl = new ClientesController();
+
     /**
      * Creates new form home
      */
@@ -49,6 +52,8 @@ public class home extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+
+        jTextField3 = new javax.swing.JTextField();
         mainMasterPanel = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -103,6 +108,9 @@ public class home extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        todosProductosVentasTable = new javax.swing.JTable();
+
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         inventarioPanel = new javax.swing.JPanel();
@@ -178,12 +186,10 @@ public class home extends javax.swing.JFrame {
         clientesPanel = new javax.swing.JPanel();
         clientesSubPanel = new javax.swing.JPanel();
         clientesTodosPanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+
+        jScrollPane4 = new javax.swing.JScrollPane();
+        clientesTodos = new javax.swing.JTable();
+
         clientesAgregarPanel = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -192,17 +198,19 @@ public class home extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+
+        clienteNombre = new javax.swing.JTextField();
+        clienteApellidoPaterno = new javax.swing.JTextField();
+        clienteApellidoMaterno = new javax.swing.JTextField();
+        clienteRfc = new javax.swing.JTextField();
+        clienteTelefono = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        clienteGuardar = new javax.swing.JButton();
         clientesModificarPanel = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        listaClientesModificar = new javax.swing.JComboBox<>();
+
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
@@ -339,6 +347,7 @@ public class home extends javax.swing.JFrame {
         jLabel123 = new javax.swing.JLabel();
         jLabel124 = new javax.swing.JLabel();
 
+        jTextField3.setText("jTextField3");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mi Tiendita App");
         setBackground(new java.awt.Color(0, 0, 0));
@@ -356,7 +365,6 @@ public class home extends javax.swing.JFrame {
         jLabel29.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Mi Tiendita App");
-
         jLabel89.setIcon(new javax.swing.ImageIcon("/Users/juanba/Pictures/mitiendita2.png")); // NOI18N
         jLabel89.setToolTipText("www.juanbarajas.com");
         jLabel89.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -862,7 +870,9 @@ public class home extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(74, 74, 74)
                 .addComponent(jLabel12)
-                .addContainerGap(118, Short.MAX_VALUE))
+                      //used to be .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
+
         );
         tableHeadersLayout.setVerticalGroup(
             tableHeadersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -923,18 +933,38 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+
+        todosProductosVentasTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(todosProductosVentasTable);
         javax.swing.GroupLayout brownBackgroundLayout = new javax.swing.GroupLayout(brownBackground);
         brownBackground.setLayout(brownBackgroundLayout);
         brownBackgroundLayout.setHorizontalGroup(
             brownBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tableHeaders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ventasBottomPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+
         );
         brownBackgroundLayout.setVerticalGroup(
             brownBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(brownBackgroundLayout.createSequentialGroup()
                 .addComponent(tableHeaders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+
+                // from master .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
+
                 .addComponent(ventasBottomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1057,7 +1087,10 @@ public class home extends javax.swing.JFrame {
         );
         invTodosPanelLayout.setVerticalGroup(
             invTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+
+            // from master .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+
         );
 
         inventarioSubPanel.add(invTodosPanel, "invTodosPanel");
@@ -1085,7 +1118,9 @@ public class home extends javax.swing.JFrame {
         );
         invBajosPanelLayout.setVerticalGroup(
             invBajosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+          //  .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+
         );
 
         inventarioSubPanel.add(invBajosPanel, "invBajosPanel");
@@ -1108,6 +1143,14 @@ public class home extends javax.swing.JFrame {
         jLabel60.setText("Existencias:");
 
         jLabel61.setText("Stock Minimo:");
+
+
+        inventarioAgregarNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventarioAgregarNombreActionPerformed(evt);
+            }
+        });
+
 
         agregarCancelarProductoButton.setText("Cancelar");
         agregarCancelarProductoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1200,7 +1243,10 @@ public class home extends javax.swing.JFrame {
                 .addGroup(invAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel61)
                     .addComponent(inventarioAgregarStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+
+                //.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+
                 .addGroup(invAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarCancelarProductoButton)
                     .addComponent(agregarGuardarProductoButton)
@@ -1314,12 +1360,22 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel62)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+
+                .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel63)
+                        .addComponent(modBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton16)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
+      /*          .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel63)
                     .addComponent(modBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton16)
                     .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+*/
                 .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1348,7 +1404,11 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jButton11)
                     .addComponent(guardarCambioButton)
                     .addComponent(successLabel))
-                .addContainerGap(124, Short.MAX_VALUE))
+
+                .addContainerGap(111, Short.MAX_VALUE))
+
+               // .addContainerGap(124, Short.MAX_VALUE))
+
         );
 
         inventarioSubPanel.add(invModificarPanel, "invModificarPanel");
@@ -1478,7 +1538,10 @@ public class home extends javax.swing.JFrame {
                 .addGroup(invBorrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel128)
                     .addComponent(borrarStockField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+
+                //.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+
                 .addGroup(invBorrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15)
                     .addComponent(borrarButton)
@@ -1552,7 +1615,11 @@ public class home extends javax.swing.JFrame {
                     .addComponent(invModificarButton)
                     .addComponent(invBorrarButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(inventarioSubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
+                .addComponent(inventarioSubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
+=======
+               // .addComponent(inventarioSubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
         );
 
         mainPanel.add(inventarioPanel, "inventarioPanel");
@@ -1565,60 +1632,31 @@ public class home extends javax.swing.JFrame {
 
         clientesTodosPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(36, 47, 65));
+        clientesTodos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(clientesTodos);
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nombre");
-
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Apellido Paterno");
-
-        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setText("Apellido Materno");
-
-        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("RFC");
-
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("Telefono");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(51, 51, 51)
-                .addComponent(jLabel33)
-                .addGap(55, 55, 55)
-                .addComponent(jLabel34)
-                .addGap(82, 82, 82)
-                .addComponent(jLabel35)
-                .addGap(88, 88, 88)
-                .addComponent(jLabel36)
-                .addContainerGap(395, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout clientesTodosPanelLayout = new javax.swing.GroupLayout(clientesTodosPanel);
         clientesTodosPanel.setLayout(clientesTodosPanelLayout);
         clientesTodosPanelLayout.setHorizontalGroup(
             clientesTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
         );
         clientesTodosPanelLayout.setVerticalGroup(
             clientesTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(clientesTodosPanelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 473, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+
         );
 
         clientesSubPanel.add(clientesTodosPanel, "clientesTodosPanel");
@@ -1642,15 +1680,36 @@ public class home extends javax.swing.JFrame {
 
         jLabel42.setText("Telefono:");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+
+        clienteNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                clienteNombreActionPerformed(evt);
+            }
+        });
+
+        clienteApellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteApellidoPaternoActionPerformed(evt);
+            }
+        });
+
+        clienteTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteTelefonoActionPerformed(evt);
+
             }
         });
 
         jButton5.setText("Cancelar");
 
-        jButton6.setText("Guardar Cliente");
+
+        clienteGuardar.setText("Guardar Cliente");
+        clienteGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteGuardarActionPerformed(evt);
+            }
+        });
+
 
         javax.swing.GroupLayout clientesAgregarPanelLayout = new javax.swing.GroupLayout(clientesAgregarPanel);
         clientesAgregarPanel.setLayout(clientesAgregarPanelLayout);
@@ -1669,18 +1728,20 @@ public class home extends javax.swing.JFrame {
                             .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+
+                            .addComponent(clienteApellidoPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(clienteApellidoMaterno, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clienteRfc, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, clientesAgregarPanelLayout.createSequentialGroup()
                                 .addComponent(jButton5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6))
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3)))
+                                .addComponent(clienteGuardar))
+                            .addComponent(clienteTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clienteNombre)))
                     .addComponent(jLabel24)
                     .addComponent(jLabel37))
-                .addContainerGap(587, Short.MAX_VALUE))
+                .addContainerGap(618, Short.MAX_VALUE))
+
         );
         clientesAgregarPanelLayout.setVerticalGroup(
             clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1692,28 +1753,30 @@ public class home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                    .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clienteApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clienteApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clienteRfc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clienteTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
-                    .addComponent(jButton6))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addComponent(clienteGuardar))
+                .addContainerGap(169, Short.MAX_VALUE))
+
         );
 
         clientesSubPanel.add(clientesAgregarPanel, "clientesAgregarPanel");
@@ -1727,7 +1790,14 @@ public class home extends javax.swing.JFrame {
         jLabel44.setForeground(new java.awt.Color(43, 66, 150));
         jLabel44.setText("Seleccione cliente a modificar:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        listaClientesModificar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listaClientesModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaClientesModificarActionPerformed(evt);
+            }
+        });
+
 
         jButton7.setText("Cancelar");
 
@@ -1760,7 +1830,9 @@ public class home extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, clientesModificarPanelLayout.createSequentialGroup()
                         .addComponent(jLabel44)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                        .addComponent(listaClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, clientesModificarPanelLayout.createSequentialGroup()
                             .addGap(14, 14, 14)
@@ -1789,7 +1861,9 @@ public class home extends javax.swing.JFrame {
                             .addComponent(jButton7)
                             .addGap(18, 18, 18)
                             .addComponent(jButton8))))
-                .addContainerGap(673, Short.MAX_VALUE))
+
+                .addContainerGap(704, Short.MAX_VALUE))
+
         );
         clientesModificarPanelLayout.setVerticalGroup(
             clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1799,7 +1873,8 @@ public class home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(listaClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                 .addGap(30, 30, 30)
                 .addGroup(clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
@@ -1880,7 +1955,8 @@ public class home extends javax.swing.JFrame {
                 .addGroup(clientesBorrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
                     .addComponent(jButton10))
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addContainerGap(422, Short.MAX_VALUE))
+
         );
 
         clientesSubPanel.add(clientesBorrarPanel, "clientesBorrarPanel");
@@ -2786,10 +2862,9 @@ public class home extends javax.swing.JFrame {
         jLabel102.setForeground(new java.awt.Color(0, 153, 0));
         jLabel102.setText("$100.00");
 
-        jLabel103.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel103.setText("39");
 
-        jLabel104.setForeground(new java.awt.Color(0, 0, 0));
         jLabel104.setText("229");
 
         jLabel105.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -2935,13 +3010,29 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)clientesSubPanel.getLayout();
         card.show(clientesSubPanel, "clientesTodosPanel");
+
+        DefaultTableModel model = null;
+        try {
+            model = clienControl.todosClientesDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        clientesTodos.setModel(model);
+
     }//GEN-LAST:event_clientesTodosButtonActionPerformed
 
     private void invBajosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invBajosButtonActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
         card.show(inventarioSubPanel, "invBajosPanel");
-        DefaultTableModel model = prodControl.todosProductosBajosDisplay();
+
+        DefaultTableModel model = null;
+        try {
+            model = prodControl.todosProductosBajosDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         todosBajosTable.setModel(model);
     }//GEN-LAST:event_invBajosButtonActionPerformed
         
@@ -2949,7 +3040,13 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:  
         CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
         card.show(inventarioSubPanel, "invTodosPanel");
-        DefaultTableModel model = prodControl.todosProductosDisplay();
+
+        DefaultTableModel model = null;
+        try {
+            model = prodControl.todosProductosDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         todosProductosTable.setModel(model);
         
     }//GEN-LAST:event_invTodosButtonActionPerformed
@@ -2990,9 +3087,11 @@ public class home extends javax.swing.JFrame {
         card.show(configuracionSubPanel, "configuracionTicketPanel");
     }//GEN-LAST:event_confTicketPanelActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+
+    private void clienteApellidoPaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteApellidoPaternoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_clienteApellidoPaternoActionPerformed
+
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
@@ -3301,7 +3400,14 @@ public class home extends javax.swing.JFrame {
         headerBackgroundImage.setIcon(II);
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "inventarioPanel");
-        DefaultTableModel model = prodControl.todosProductosDisplay();
+
+        DefaultTableModel model = null;
+        try {
+            model = prodControl.todosProductosDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         todosProductosTable.setModel(model);
         
     }//GEN-LAST:event_inventarioLabelMousePressed
@@ -3403,7 +3509,6 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_iniciarButtonMouseClicked
 
     private void agregarGuardarProductoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarGuardarProductoButtonActionPerformed
-        // TODO add your handling code here:
         boolean error = false;
         ProductoController agProd = new ProductoController();
         try {
@@ -3569,6 +3674,47 @@ public class home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_guardarCambioButtonActionPerformed
 
+    private void clienteNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteNombreActionPerformed
+
+    private void inventarioAgregarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioAgregarNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inventarioAgregarNombreActionPerformed
+
+    private void clienteGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteGuardarActionPerformed
+        // TODO add your handling code here:
+        boolean error = false;
+        ClientesController agCliente = new ClientesController();
+        try {
+            error = agCliente.agregarCliente(clienteNombre.getText(), clienteApellidoPaterno.getText(), clienteApellidoMaterno.getText(), clienteRfc.getText(), Integer.parseInt(clienteTelefono.getText()));
+            if (error) {
+                errorYaExiste.setText("Cliente ya esta registrado");
+            } else {
+                successMessage.setText("Cliente añadido exitosamente al registro");
+                clienteNombre.setText("");
+                clienteApellidoPaterno.setText("");
+                clienteApellidoMaterno.setText("");
+                clienteRfc.setText("");
+                clienteTelefono.setText("");
+                errorYaExiste.setText("");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_clienteGuardarActionPerformed
+
+    private void clienteTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteTelefonoActionPerformed
+
+    private void listaClientesModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaClientesModificarActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_listaClientesModificarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3616,6 +3762,14 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField borrarPVField;
     private javax.swing.JTextField borrarStockField;
     private javax.swing.JPanel brownBackground;
+
+    private javax.swing.JTextField clienteApellidoMaterno;
+    private javax.swing.JTextField clienteApellidoPaterno;
+    private javax.swing.JButton clienteGuardar;
+    private javax.swing.JTextField clienteNombre;
+    private javax.swing.JTextField clienteRfc;
+    private javax.swing.JTextField clienteTelefono;
+
     private javax.swing.JButton clientesAgregarButton;
     private javax.swing.JPanel clientesAgregarPanel;
     private javax.swing.JButton clientesBorrarButton;
@@ -3625,6 +3779,9 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel clientesModificarPanel;
     private javax.swing.JPanel clientesPanel;
     private javax.swing.JPanel clientesSubPanel;
+
+    private javax.swing.JTable clientesTodos;
+
     private javax.swing.JButton clientesTodosButton;
     private javax.swing.JPanel clientesTodosPanel;
     private javax.swing.JLabel comprasLabel;
@@ -3685,12 +3842,12 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox3;
+
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
@@ -3744,14 +3901,11 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
+
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
+
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -3816,12 +3970,16 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    private javax.swing.JPanel jPanel2;
+
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3854,15 +4012,14 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField4;
+
     private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField41;
     private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JComboBox<String> listaClientesModificar;
+
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPanel mainMasterPanel;
     private javax.swing.JPanel mainPanel;
@@ -3889,10 +4046,14 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel tableHeaders;
     private javax.swing.JTable todosBajosTable;
     private javax.swing.JTable todosProductosTable;
+
+    private javax.swing.JTable todosProductosVentasTable;
+
     private javax.swing.JTextField usernameField;
     private javax.swing.JPanel usuariosPanel;
     private javax.swing.JPanel ventasBottomPanel;
     private javax.swing.JLabel ventasLabel;
     private javax.swing.JPanel ventasPanel;
     // End of variables declaration//GEN-END:variables
+
 }
