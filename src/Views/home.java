@@ -2941,7 +2941,12 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
         card.show(inventarioSubPanel, "invBajosPanel");
-        DefaultTableModel model = prodControl.todosProductosBajosDisplay();
+        DefaultTableModel model = null;
+        try {
+            model = prodControl.todosProductosBajosDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         todosBajosTable.setModel(model);
     }//GEN-LAST:event_invBajosButtonActionPerformed
         
@@ -2949,7 +2954,12 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:  
         CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
         card.show(inventarioSubPanel, "invTodosPanel");
-        DefaultTableModel model = prodControl.todosProductosDisplay();
+        DefaultTableModel model = null;
+        try {
+            model = prodControl.todosProductosDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         todosProductosTable.setModel(model);
         
     }//GEN-LAST:event_invTodosButtonActionPerformed
@@ -3301,7 +3311,12 @@ public class home extends javax.swing.JFrame {
         headerBackgroundImage.setIcon(II);
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "inventarioPanel");
-        DefaultTableModel model = prodControl.todosProductosDisplay();
+        DefaultTableModel model = null;
+        try {
+            model = prodControl.todosProductosDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         todosProductosTable.setModel(model);
         
     }//GEN-LAST:event_inventarioLabelMousePressed
