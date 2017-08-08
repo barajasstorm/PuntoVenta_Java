@@ -33,6 +33,7 @@ public class home extends javax.swing.JFrame {
     private boolean loginAttempt = false;
     ProductoController prodControl = new ProductoController();
     ClientesController clienControl = new ClientesController();
+
     /**
      * Creates new form home
      */
@@ -50,6 +51,7 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
+
 
         jTextField3 = new javax.swing.JTextField();
         mainMasterPanel = new javax.swing.JPanel();
@@ -108,6 +110,7 @@ public class home extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         todosProductosVentasTable = new javax.swing.JTable();
+
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         inventarioPanel = new javax.swing.JPanel();
@@ -183,8 +186,10 @@ public class home extends javax.swing.JFrame {
         clientesPanel = new javax.swing.JPanel();
         clientesSubPanel = new javax.swing.JPanel();
         clientesTodosPanel = new javax.swing.JPanel();
+
         jScrollPane4 = new javax.swing.JScrollPane();
         clientesTodos = new javax.swing.JTable();
+
         clientesAgregarPanel = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -193,6 +198,7 @@ public class home extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
+
         clienteNombre = new javax.swing.JTextField();
         clienteApellidoPaterno = new javax.swing.JTextField();
         clienteApellidoMaterno = new javax.swing.JTextField();
@@ -204,6 +210,7 @@ public class home extends javax.swing.JFrame {
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         listaClientesModificar = new javax.swing.JComboBox<>();
+
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
@@ -341,7 +348,6 @@ public class home extends javax.swing.JFrame {
         jLabel124 = new javax.swing.JLabel();
 
         jTextField3.setText("jTextField3");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mi Tiendita App");
         setBackground(new java.awt.Color(0, 0, 0));
@@ -359,7 +365,7 @@ public class home extends javax.swing.JFrame {
         jLabel29.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Mi Tiendita App");
-
+        jLabel89.setIcon(new javax.swing.ImageIcon("/Users/juanba/Pictures/mitiendita2.png")); // NOI18N
         jLabel89.setToolTipText("www.juanbarajas.com");
         jLabel89.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel89.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -864,7 +870,9 @@ public class home extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(74, 74, 74)
                 .addComponent(jLabel12)
+                      //used to be .addContainerGap(118, Short.MAX_VALUE))
                 .addContainerGap(117, Short.MAX_VALUE))
+
         );
         tableHeadersLayout.setVerticalGroup(
             tableHeadersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -925,6 +933,7 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+
         todosProductosVentasTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -937,7 +946,6 @@ public class home extends javax.swing.JFrame {
             }
         ));
         jScrollPane3.setViewportView(todosProductosVentasTable);
-
         javax.swing.GroupLayout brownBackgroundLayout = new javax.swing.GroupLayout(brownBackground);
         brownBackground.setLayout(brownBackgroundLayout);
         brownBackgroundLayout.setHorizontalGroup(
@@ -945,6 +953,7 @@ public class home extends javax.swing.JFrame {
             .addComponent(tableHeaders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ventasBottomPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+
         );
         brownBackgroundLayout.setVerticalGroup(
             brownBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -953,6 +962,9 @@ public class home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+
+                // from master .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
+
                 .addComponent(ventasBottomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1076,6 +1088,9 @@ public class home extends javax.swing.JFrame {
         invTodosPanelLayout.setVerticalGroup(
             invTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+
+            // from master .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+
         );
 
         inventarioSubPanel.add(invTodosPanel, "invTodosPanel");
@@ -1104,6 +1119,8 @@ public class home extends javax.swing.JFrame {
         invBajosPanelLayout.setVerticalGroup(
             invBajosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+          //  .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+
         );
 
         inventarioSubPanel.add(invBajosPanel, "invBajosPanel");
@@ -1127,11 +1144,13 @@ public class home extends javax.swing.JFrame {
 
         jLabel61.setText("Stock Minimo:");
 
+
         inventarioAgregarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inventarioAgregarNombreActionPerformed(evt);
             }
         });
+
 
         agregarCancelarProductoButton.setText("Cancelar");
         agregarCancelarProductoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1225,6 +1244,9 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jLabel61)
                     .addComponent(inventarioAgregarStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+
+                //.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+
                 .addGroup(invAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarCancelarProductoButton)
                     .addComponent(agregarGuardarProductoButton)
@@ -1338,6 +1360,7 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel62)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
                 .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1345,6 +1368,14 @@ public class home extends javax.swing.JFrame {
                         .addComponent(modBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton16)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
+      /*          .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel63)
+                    .addComponent(modBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton16)
+                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+*/
                 .addGroup(invModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1373,7 +1404,11 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jButton11)
                     .addComponent(guardarCambioButton)
                     .addComponent(successLabel))
+
                 .addContainerGap(111, Short.MAX_VALUE))
+
+               // .addContainerGap(124, Short.MAX_VALUE))
+
         );
 
         inventarioSubPanel.add(invModificarPanel, "invModificarPanel");
@@ -1504,6 +1539,9 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jLabel128)
                     .addComponent(borrarStockField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+
+                //.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+
                 .addGroup(invBorrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15)
                     .addComponent(borrarButton)
@@ -1577,7 +1615,11 @@ public class home extends javax.swing.JFrame {
                     .addComponent(invModificarButton)
                     .addComponent(invBorrarButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+
                 .addComponent(inventarioSubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
+=======
+               // .addComponent(inventarioSubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
         );
 
         mainPanel.add(inventarioPanel, "inventarioPanel");
@@ -1603,15 +1645,18 @@ public class home extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(clientesTodos);
 
+
         javax.swing.GroupLayout clientesTodosPanelLayout = new javax.swing.GroupLayout(clientesTodosPanel);
         clientesTodosPanel.setLayout(clientesTodosPanelLayout);
         clientesTodosPanelLayout.setHorizontalGroup(
             clientesTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
         );
         clientesTodosPanelLayout.setVerticalGroup(
             clientesTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+
         );
 
         clientesSubPanel.add(clientesTodosPanel, "clientesTodosPanel");
@@ -1635,6 +1680,7 @@ public class home extends javax.swing.JFrame {
 
         jLabel42.setText("Telefono:");
 
+
         clienteNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteNombreActionPerformed(evt);
@@ -1650,10 +1696,12 @@ public class home extends javax.swing.JFrame {
         clienteTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteTelefonoActionPerformed(evt);
+
             }
         });
 
         jButton5.setText("Cancelar");
+
 
         clienteGuardar.setText("Guardar Cliente");
         clienteGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -1661,6 +1709,7 @@ public class home extends javax.swing.JFrame {
                 clienteGuardarActionPerformed(evt);
             }
         });
+
 
         javax.swing.GroupLayout clientesAgregarPanelLayout = new javax.swing.GroupLayout(clientesAgregarPanel);
         clientesAgregarPanel.setLayout(clientesAgregarPanelLayout);
@@ -1679,6 +1728,7 @@ public class home extends javax.swing.JFrame {
                             .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+
                             .addComponent(clienteApellidoPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(clienteApellidoMaterno, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(clienteRfc, javax.swing.GroupLayout.Alignment.LEADING)
@@ -1691,6 +1741,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jLabel24)
                     .addComponent(jLabel37))
                 .addContainerGap(618, Short.MAX_VALUE))
+
         );
         clientesAgregarPanelLayout.setVerticalGroup(
             clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1702,6 +1753,7 @@ public class home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
+
                     .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(clientesAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1724,6 +1776,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jButton5)
                     .addComponent(clienteGuardar))
                 .addContainerGap(169, Short.MAX_VALUE))
+
         );
 
         clientesSubPanel.add(clientesAgregarPanel, "clientesAgregarPanel");
@@ -1737,12 +1790,14 @@ public class home extends javax.swing.JFrame {
         jLabel44.setForeground(new java.awt.Color(43, 66, 150));
         jLabel44.setText("Seleccione cliente a modificar:");
 
+
         listaClientesModificar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         listaClientesModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listaClientesModificarActionPerformed(evt);
             }
         });
+
 
         jButton7.setText("Cancelar");
 
@@ -1775,7 +1830,9 @@ public class home extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, clientesModificarPanelLayout.createSequentialGroup()
                         .addComponent(jLabel44)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+
                         .addComponent(listaClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, clientesModificarPanelLayout.createSequentialGroup()
                             .addGap(14, 14, 14)
@@ -1804,7 +1861,9 @@ public class home extends javax.swing.JFrame {
                             .addComponent(jButton7)
                             .addGap(18, 18, 18)
                             .addComponent(jButton8))))
+
                 .addContainerGap(704, Short.MAX_VALUE))
+
         );
         clientesModificarPanelLayout.setVerticalGroup(
             clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1815,6 +1874,7 @@ public class home extends javax.swing.JFrame {
                 .addGroup(clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
                     .addComponent(listaClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                 .addGap(30, 30, 30)
                 .addGroup(clientesModificarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
@@ -1896,6 +1956,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jButton9)
                     .addComponent(jButton10))
                 .addContainerGap(422, Short.MAX_VALUE))
+
         );
 
         clientesSubPanel.add(clientesBorrarPanel, "clientesBorrarPanel");
@@ -2801,6 +2862,7 @@ public class home extends javax.swing.JFrame {
         jLabel102.setForeground(new java.awt.Color(0, 153, 0));
         jLabel102.setText("$100.00");
 
+
         jLabel103.setText("39");
 
         jLabel104.setText("229");
@@ -2948,6 +3010,7 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)clientesSubPanel.getLayout();
         card.show(clientesSubPanel, "clientesTodosPanel");
+
         DefaultTableModel model = null;
         try {
             model = clienControl.todosClientesDisplay();
@@ -2955,20 +3018,21 @@ public class home extends javax.swing.JFrame {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
         clientesTodos.setModel(model);
-        
-         
+
     }//GEN-LAST:event_clientesTodosButtonActionPerformed
 
     private void invBajosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invBajosButtonActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
         card.show(inventarioSubPanel, "invBajosPanel");
+
         DefaultTableModel model = null;
         try {
             model = prodControl.todosProductosBajosDisplay();
         } catch (SQLException ex) {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         todosBajosTable.setModel(model);
     }//GEN-LAST:event_invBajosButtonActionPerformed
         
@@ -2976,6 +3040,7 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:  
         CardLayout card = (CardLayout)inventarioSubPanel.getLayout();
         card.show(inventarioSubPanel, "invTodosPanel");
+
         DefaultTableModel model = null;
         try {
             model = prodControl.todosProductosDisplay();
@@ -2985,7 +3050,7 @@ public class home extends javax.swing.JFrame {
         todosProductosTable.setModel(model);
         
     }//GEN-LAST:event_invTodosButtonActionPerformed
-    
+
     private void provTodosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_provTodosButtonActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)proveedoresSubPanel.getLayout();
@@ -3022,9 +3087,11 @@ public class home extends javax.swing.JFrame {
         card.show(configuracionSubPanel, "configuracionTicketPanel");
     }//GEN-LAST:event_confTicketPanelActionPerformed
 
+
     private void clienteApellidoPaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteApellidoPaternoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clienteApellidoPaternoActionPerformed
+
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
@@ -3333,12 +3400,14 @@ public class home extends javax.swing.JFrame {
         headerBackgroundImage.setIcon(II);
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "inventarioPanel");
+
         DefaultTableModel model = null;
         try {
             model = prodControl.todosProductosDisplay();
         } catch (SQLException ex) {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         todosProductosTable.setModel(model);
         
     }//GEN-LAST:event_inventarioLabelMousePressed
@@ -3693,12 +3762,14 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField borrarPVField;
     private javax.swing.JTextField borrarStockField;
     private javax.swing.JPanel brownBackground;
+
     private javax.swing.JTextField clienteApellidoMaterno;
     private javax.swing.JTextField clienteApellidoPaterno;
     private javax.swing.JButton clienteGuardar;
     private javax.swing.JTextField clienteNombre;
     private javax.swing.JTextField clienteRfc;
     private javax.swing.JTextField clienteTelefono;
+
     private javax.swing.JButton clientesAgregarButton;
     private javax.swing.JPanel clientesAgregarPanel;
     private javax.swing.JButton clientesBorrarButton;
@@ -3708,7 +3779,9 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel clientesModificarPanel;
     private javax.swing.JPanel clientesPanel;
     private javax.swing.JPanel clientesSubPanel;
+
     private javax.swing.JTable clientesTodos;
+
     private javax.swing.JButton clientesTodosButton;
     private javax.swing.JPanel clientesTodosPanel;
     private javax.swing.JLabel comprasLabel;
@@ -3769,10 +3842,12 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox10;
+
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
@@ -3826,9 +3901,11 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -3893,13 +3970,16 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3932,12 +4012,14 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
+
     private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField41;
     private javax.swing.JTextField jTextField42;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JComboBox<String> listaClientesModificar;
+
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPanel mainMasterPanel;
     private javax.swing.JPanel mainPanel;
@@ -3964,7 +4046,9 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel tableHeaders;
     private javax.swing.JTable todosBajosTable;
     private javax.swing.JTable todosProductosTable;
+
     private javax.swing.JTable todosProductosVentasTable;
+
     private javax.swing.JTextField usernameField;
     private javax.swing.JPanel usuariosPanel;
     private javax.swing.JPanel ventasBottomPanel;
@@ -3972,5 +4056,4 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel ventasPanel;
     // End of variables declaration//GEN-END:variables
 
-    
 }
