@@ -6,6 +6,14 @@
 package Controllers;
 
 import Models.Producto;
+<<<<<<< HEAD
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+=======
 import Views.home;
 import java.awt.Window;
 import java.sql.Connection;
@@ -20,6 +28,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import models.*;
+>>>>>>> 92a876d929989693818baa3021399d80d2970327
 
 /**
  *
@@ -138,4 +147,11 @@ public class ProductoController extends Producto {
         return model;
     }
 
+<<<<<<< HEAD
+    public DefaultTableModel todosProductosVentasDisplay() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+=======
+>>>>>>> 92a876d929989693818baa3021399d80d2970327
 }

@@ -18,9 +18,15 @@ import java.sql.Statement;
 public class Postgres {
 
     public static final String JDBC_DRIVER = "org.postgresql.Driver";
+<<<<<<< HEAD
+    public static final String DATABASE_URL = "jdbc:postgresql://localhost/postgres";
+    private final String USER = "postgres";
+    private final String PASSWORD = "geritemtz1";
+=======
     public static final String DATABASE_URL = "jdbc:postgresql://localhost/final";
     private final String USER = "postgres";
     private final String PASSWORD = "password";
+>>>>>>> 92a876d929989693818baa3021399d80d2970327
     Connection connection = null;
     Statement statement = null;
     ResultSet resultSet = null;
