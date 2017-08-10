@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package home;
+package Models;
 
 /**
  *
@@ -12,11 +12,11 @@ package home;
 public class Proveedor {
     
     //Instance Variables
-    private String nombre;
-    private String rfc;
-    private int telefono;
-    private String ciudad;
-    private String estado;
+    public String nombre;
+    public String rfc;
+    public int telefono;
+    public String ciudad;
+    public String estado;
     
     //Constructors
     public Proveedor() {

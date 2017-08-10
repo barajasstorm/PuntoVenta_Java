@@ -33,6 +33,7 @@ public class home extends javax.swing.JFrame {
     private boolean loginAttempt = false;
     ProductoController prodControl = new ProductoController();
     ClientesController clienControl = new ClientesController();
+    ProveedorController provControl = new ProveedorController();
     /**
      * Creates new form home
      */
@@ -229,12 +230,8 @@ public class home extends javax.swing.JFrame {
         proveedoresPanel = new javax.swing.JPanel();
         proveedoresSubPanel = new javax.swing.JPanel();
         provTodosPanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
-        jLabel73 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablaProveedores = new javax.swing.JTable();
         provAgregarPanel = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel74 = new javax.swing.JLabel();
@@ -243,13 +240,13 @@ public class home extends javax.swing.JFrame {
         jLabel77 = new javax.swing.JLabel();
         jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
+        nombreProveedor = new javax.swing.JTextField();
+        rfcProveedor = new javax.swing.JTextField();
+        telefonoProveedor = new javax.swing.JTextField();
+        ciudadProveedor = new javax.swing.JTextField();
+        estadoProveedor = new javax.swing.JTextField();
         jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
+        guardarProveedor = new javax.swing.JButton();
         provModificarPanel = new javax.swing.JPanel();
         jLabel80 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
@@ -1966,61 +1963,28 @@ public class home extends javax.swing.JFrame {
 
         provTodosPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(36, 47, 65));
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nombre");
-
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("RFC");
-
-        jLabel71.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel71.setText("Telefono");
-
-        jLabel72.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel72.setText("Ciudad");
-
-        jLabel73.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel73.setText("Estado");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(70, 70, 70)
-                .addComponent(jLabel21)
-                .addGap(104, 104, 104)
-                .addComponent(jLabel71)
-                .addGap(104, 104, 104)
-                .addComponent(jLabel72)
-                .addGap(95, 95, 95)
-                .addComponent(jLabel73)
-                .addContainerGap(422, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel71)
-                .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel73))
-        );
+        tablaProveedores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tablaProveedores);
 
         javax.swing.GroupLayout provTodosPanelLayout = new javax.swing.GroupLayout(provTodosPanel);
         provTodosPanel.setLayout(provTodosPanelLayout);
         provTodosPanelLayout.setHorizontalGroup(
             provTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
         );
         provTodosPanelLayout.setVerticalGroup(
             provTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(provTodosPanelLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 467, Short.MAX_VALUE))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
         );
 
         proveedoresSubPanel.add(provTodosPanel, "provTodosPanel");
@@ -2044,21 +2008,26 @@ public class home extends javax.swing.JFrame {
 
         jLabel79.setText("Estado:");
 
-        jTextField25.addActionListener(new java.awt.event.ActionListener() {
+        nombreProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField25ActionPerformed(evt);
+                nombreProveedorActionPerformed(evt);
             }
         });
 
-        jTextField26.addActionListener(new java.awt.event.ActionListener() {
+        rfcProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField26ActionPerformed(evt);
+                rfcProveedorActionPerformed(evt);
             }
         });
 
         jButton17.setText("Cancelar");
 
-        jButton18.setText("Guardar");
+        guardarProveedor.setText("Guardar");
+        guardarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarProveedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout provAgregarPanelLayout = new javax.swing.GroupLayout(provAgregarPanel);
         provAgregarPanel.setLayout(provAgregarPanelLayout);
@@ -2080,20 +2049,20 @@ public class home extends javax.swing.JFrame {
                                 .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, provAgregarPanelLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(estadoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(provAgregarPanelLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTextField25, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                .addComponent(jTextField26)
-                                                .addComponent(jTextField27))
-                                            .addComponent(jTextField28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(nombreProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                                .addComponent(rfcProveedor)
+                                                .addComponent(telefonoProveedor))
+                                            .addComponent(ciudadProveedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(provAgregarPanelLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(jButton17)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton18))))
+                                .addComponent(guardarProveedor))))
                     .addGroup(provAgregarPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2111,27 +2080,27 @@ public class home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel75)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel76)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rfcProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel77)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefonoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel78)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ciudadProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel79)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(estadoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(74, 74, 74)
                 .addGroup(provAgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton17)
-                    .addComponent(jButton18))
+                    .addComponent(guardarProveedor))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
 
@@ -2895,7 +2864,7 @@ public class home extends javax.swing.JFrame {
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(headerMainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         backgroundPanelLayout.setVerticalGroup(
@@ -2990,6 +2959,13 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)proveedoresSubPanel.getLayout();
         card.show(proveedoresSubPanel, "provTodosPanel");
+        DefaultTableModel model = null;
+        try {
+            model = provControl.todosProveedoresDisplay();
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaProveedores.setModel(model);
     }//GEN-LAST:event_provTodosButtonActionPerformed
 
     private void provAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_provAgregarButtonActionPerformed
@@ -3045,13 +3021,13 @@ public class home extends javax.swing.JFrame {
         borrarStockField.setText("");
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+    private void nombreProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
+    }//GEN-LAST:event_nombreProveedorActionPerformed
 
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
+    private void rfcProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfcProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
+    }//GEN-LAST:event_rfcProveedorActionPerformed
 
     private void jTextField31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField31ActionPerformed
         // TODO add your handling code here:
@@ -3646,6 +3622,27 @@ public class home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listaClientesModificarActionPerformed
 
+    private void guardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProveedorActionPerformed
+        boolean error = false;
+        ProveedorController provControl = new ProveedorController();
+        try {
+            error = provControl.agregarProveedor(nombreProveedor.getText(), rfcProveedor.getText(), Integer.parseInt(telefonoProveedor.getText()), ciudadProveedor.getText(), estadoProveedor.getText());
+            if(error) {
+                errorYaExiste.setText("El proveedor ya se encuentra en registrado en el sistema");
+            } else {
+                successMessage.setText("Proveedor agregado a la lista de contacto");
+                nombreProveedor.setText("");
+                rfcProveedor.setText("");
+                telefonoProveedor.setText("");
+                ciudadProveedor.setText("");
+                estadoProveedor.setText("");
+                errorYaExiste.setText("");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_guardarProveedorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3693,6 +3690,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField borrarPVField;
     private javax.swing.JTextField borrarStockField;
     private javax.swing.JPanel brownBackground;
+    private javax.swing.JTextField ciudadProveedor;
     private javax.swing.JTextField clienteApellidoMaterno;
     private javax.swing.JTextField clienteApellidoPaterno;
     private javax.swing.JButton clienteGuardar;
@@ -3728,7 +3726,9 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel errorLogin;
     private javax.swing.JLabel errorYaExiste;
+    private javax.swing.JTextField estadoProveedor;
     private javax.swing.JButton guardarCambioButton;
+    private javax.swing.JButton guardarProveedor;
     private javax.swing.JLabel headerBackgroundImage;
     private javax.swing.JPanel headerMainPanel;
     private javax.swing.JPanel headerSecondPanel;
@@ -3759,7 +3759,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
@@ -3819,7 +3818,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -3832,7 +3830,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -3862,9 +3859,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
@@ -3893,13 +3887,13 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3917,11 +3911,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
@@ -3943,6 +3932,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField modBuscarField;
     private javax.swing.JLabel nombreLabelSearch;
+    private javax.swing.JTextField nombreProveedor;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField productoBorrarField;
     private javax.swing.JButton provAgregarButton;
@@ -3957,11 +3947,14 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel proveedoresPanel;
     private javax.swing.JPanel proveedoresSubPanel;
     private javax.swing.JLabel registrarButton;
+    private javax.swing.JTextField rfcProveedor;
     private javax.swing.JLabel salirLabel;
     private javax.swing.JLabel successBorrado;
     private javax.swing.JLabel successLabel;
     private javax.swing.JLabel successMessage;
+    private javax.swing.JTable tablaProveedores;
     private javax.swing.JPanel tableHeaders;
+    private javax.swing.JTextField telefonoProveedor;
     private javax.swing.JTable todosBajosTable;
     private javax.swing.JTable todosProductosTable;
     private javax.swing.JTable todosProductosVentasTable;
