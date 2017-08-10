@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<<<<<<< HEAD:src/Views/home.form
   <NonVisualComponents>
     <Component class="javax.swing.JTextField" name="jTextField3">
       <Properties>
@@ -8,6 +9,8 @@
       </Properties>
     </Component>
   </NonVisualComponents>
+=======
+>>>>>>> 92a876d929989693818baa3021399d80d2970327:src/Views/home.form
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Mi Tiendita App"/>
@@ -1336,9 +1339,12 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="inventarioAgregarNombre">
+<<<<<<< HEAD:src/Views/home.form
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inventarioAgregarNombreActionPerformed"/>
                               </Events>
+=======
+>>>>>>> 92a876d929989693818baa3021399d80d2970327:src/Views/home.form
                             </Component>
                             <Component class="javax.swing.JTextField" name="inventarioAgregarPC">
                             </Component>
@@ -1459,6 +1465,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
+<<<<<<< HEAD:src/Views/home.form
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="errorLabel" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1468,6 +1475,15 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
+=======
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="modBuscarField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="errorLabel" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="22" max="32767" attributes="0"/>
+>>>>>>> 92a876d929989693818baa3021399d80d2970327:src/Views/home.form
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1690,6 +1706,7 @@
                                           <Component id="productoBorrarField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="borrarBuscarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="errorBorrar" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD:src/Views/home.form
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1698,6 +1715,16 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
+=======
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="borrarNombreField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+>>>>>>> 92a876d929989693818baa3021399d80d2970327:src/Views/home.form
                                           <Component id="jLabel125" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="borrarPCField" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>

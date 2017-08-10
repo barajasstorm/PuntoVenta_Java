@@ -32,16 +32,27 @@ CREATE TABLE clientes (
 	apellidopaterno varchar (30) NOT NULL,
 	apellidomaterno varchar (30) NOT NULL,
 	rfc varchar (30) NOT NULL,
+<<<<<<< HEAD
 	telefono INT NOT NULL	
+=======
+	telefono varchar (10) NOT NULL	
+>>>>>>> 92a876d929989693818baa3021399d80d2970327
 );
 
 CREATE TABLE proveedores (
 	pk_proveedorid SERIAL NOT NULL PRIMARY KEY,
 	nombre varchar (30) NOT NULL,
+<<<<<<< HEAD
 	rfc varchar (30) NOT NULL,
 	telefono INT NOT NULL,
 	ciudad varchar (30) NOT NULL,
 	estado varchar (30) NOT NULL	
+=======
+	apellidopaterno varchar (30) NOT NULL,
+	apellidomaterno varchar (30) NOT NULL,
+	rfc varchar (30) NOT NULL,
+	telefono varchar (10) NOT NULL	
+>>>>>>> 92a876d929989693818baa3021399d80d2970327
 );
 
 CREATE TABLE ventas (
@@ -88,7 +99,11 @@ CREATE TABLE ticketformato (
 	linea4 varchar(100),
 	linea5 varchar(100),
 	linea6 varchar(100),
+<<<<<<< HEAD
 	linea7 varchar(100)
+=======
+	linea7 varchar(100),
+>>>>>>> 92a876d929989693818baa3021399d80d2970327
 );
 
 
@@ -122,6 +137,16 @@ insert into clientes (nombre,apellidopaterno,apellidomaterno,rfc,telefono)
 	values ('Steve','Jobs','Jobs','XXXX0000X0X0X0X',3333000000);
 
 
+<<<<<<< HEAD
+=======
+insert into proveedores (nombre,apellidopaterno,apellidomaterno,rfc,telefono) 
+	values ('Joaquin','Guzman','Loera','XXXX0000X0X0X0X',3333000000);
+
+insert into proveedores (nombre,apellidopaterno,apellidomaterno,rfc,telefono) 
+	values ('Pablo','Excobar','Gaviria','XXXX0000X0X0X0X',3333000000);
+
+
+>>>>>>> 92a876d929989693818baa3021399d80d2970327
 insert into ticketformato (linea1,linea2,linea3,linea4,linea5,linea6,linea7) 
 	values ('Mi Tiendita','Direccion 123 Col. Colonia','(123) 000 0000','RFC01234567','', 'Gracias por su compra', 'www.juanbarajas.com');
 

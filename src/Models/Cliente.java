@@ -18,6 +18,7 @@ public class Cliente {
     public String rfc;
     public int telefono;
 
+
     //Constructors
     public Cliente() {
     }
